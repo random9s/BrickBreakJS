@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Assm Demo</title>
+        <script src="wasm_exec.js"></script>
+        <script>
+            const go = new Go();
+            WebAssembly.instantiateStreaming(fetch("main.wasm"), go.importObject).then((result) => {
+                go.run(result.instance);
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="game-view">
+            Time to update the ole' browser there, Jefferson.
+        </canvas>
+    </body>
+</html>
